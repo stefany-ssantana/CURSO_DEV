@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Santana Tech</title>
+    <style>
+        :root {
+            --bg-color: #0d0b14;
+            --card-bg: #161224;
+            --primary-purple: #8A2BE2;
+            --accent-purple: #9d4edd;
+            --text-color: #e0e0e0;
+            --text-muted: #a099b5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+        header { background-color: var(--card-bg); border-bottom: 2px solid var(--primary-purple); position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: var(--accent-purple); }
+
+        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+        nav a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--accent-purple); }
+
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+        
+        .page-title { margin-bottom: 1.5rem; border-left: 4px solid var(--primary-purple); padding-left: 1rem; color: #fff; }
+
+        /* Formulário */
+        .contact-form { background-color: var(--card-bg); padding: 2rem; border-radius: 8px; border: 1px solid rgba(138, 43, 226, 0.2); }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #fff; font-size: 0.9rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.8rem; background: #0d0b14; border: 1px solid var(--primary-purple); border-radius: 4px; color: #fff; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-purple); box-shadow: 0 0 8px rgba(157, 78, 221, 0.4); }
+        
+        .btn-submit { background-color: var(--primary-purple); color: #fff; border: none; padding: 0.8rem 1.5rem; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background 0.3s; width: 100%; }
+        .btn-submit:hover { background-color: var(--accent-purple); }
+
+        aside { display: flex; flex-direction: column; gap: 1.5rem; }
+        .widget { background-color: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-purple); }
+        .widget-title { font-size: 1.1rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; }
+
+        footer { background-color: var(--card-bg); border-top: 1px solid rgba(138, 43, 226, 0.3); text-align: center; padding: 2rem; margin-top: 3rem; color: var(--text-muted); }
+
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="inicio.html" class="logo">Santana<span>Tech</span></a>
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Início</a></li>
+                    <li><a href="tecnologia.html">Tecnologia</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h1 class="page-title">Fale Conosco</h1>
+            
+            <form class="contact-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" placeholder="Ex: Anúncios, Dúvidas, Parcerias">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensagem</button>
+            </form>
+        </main>
+
+        <aside>
+            <div class="widget">
+                <h3 class="widget-title">Redação</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;"><strong>E-mail:</strong> contato@santanatech.com</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);"><strong>Atendimento:</strong> Seg a Sex, das 09h às 18h</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Santana Tech. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
