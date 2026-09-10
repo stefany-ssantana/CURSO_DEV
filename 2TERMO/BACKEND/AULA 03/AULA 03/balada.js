@@ -1,0 +1,8 @@
+const entrada = require('readline-sync');
+const idade = entrada.questionInt("Qual a sua idade? ")
+
+if (idade >=18) {
+    console.log("Acesso liberado! Divirta-se!");
+} else {
+    console.log("Acesso negado. Vá para a casa estudar Node.js")
+}

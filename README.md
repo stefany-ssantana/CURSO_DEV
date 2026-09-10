@@ -1,6 +1,6 @@
 
 
-## 🗂️ Visão Geral das Disciplinas
+## 🗂️ Visão Geral das Disciplinas 1° Termo
 
 ### 1. Arquitetura e Práticas em IoT
 Focado no ciclo completo do dado em ecossistemas de Internet das Coisas. O conteúdo aborda desde a captura física até a tomada de decisão na borda (Edge Computing).
