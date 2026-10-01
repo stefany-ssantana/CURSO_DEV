@@ -1,0 +1,78 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f2eeea;
+}
+
+header {
+    background-color: #cbb298;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.banner {
+    background-color: #cbb298;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.banner-texto {
+    width: 50%;
+}
+
+.banner-foto {
+    width: 50%;
+    text-align: center;
+}
+
+.img-pequena {
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+.botao {
+    display: inline-block;
+    background-color: #4a2810;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.sobre, .cardapio {
+    padding: 30px 20px;
+}
+
+.caixas, .produtos {
+    display: flex;
+    gap: 10px;
+}
+
+.caixa, .card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+}
+
+footer {
+    background-color: #4a2810;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
