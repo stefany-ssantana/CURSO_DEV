@@ -94,7 +94,7 @@ VALUES ('2026-10-01 10:00:00', 'ABERTO', 29.00, 1);
 UPDATE produto
 SET preco = preco * 1.08
 WHERE id_categoria = @categoria_especial;
-
+                   
 -- 10
 SET @pedido_atividade = 1;
 
