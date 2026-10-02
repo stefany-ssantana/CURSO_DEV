@@ -1,11 +1,60 @@
- .menu{
+.cabe {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+}
+
+.lista-c {
     display: flex;
     justify-content: space-between;
-    padding: 60px 8%;
-} 
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
 
-p {
+.ban {
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
     padding: 60px 8%;
+}
+
+.ban-c, .ban-i {
+    flex: 5;
+}
+
+.ban-i {
+    margin: 0;
+}
+
+.ban-i img {
+    width: 100%;
+    display: block;
+}
+
+.lista-ca {
+    display: flex;
+    gap: 23px;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lista-ca > li {
+    flex: 1;
+    min-width: 223px;
+}
+
+.cont-c {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 60px 8%;
+}
+
+.cont-ca, .cont-c form {
+    flex: 1;
 }
