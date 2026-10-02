@@ -1,0 +1,11 @@
+ .menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 8%;
+} 
+
+p {
+    display: flex;
+    justify-content: flex-start;
+    padding: 60px 8%;
+}
