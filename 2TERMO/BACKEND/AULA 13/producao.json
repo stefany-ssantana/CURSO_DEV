@@ -1,0 +1,17 @@
+[
+  {
+    "maquina": "Torno CNC",
+    "meta": 500,
+    "produzido": 475
+  },
+  {
+    "maquina": "Prensa Hidráulica",
+    "meta": 300,
+    "produzido": 320
+  },
+  {
+    "maquina": "Fresa Automática",
+    "meta": 200,
+    "produzido": 150
+  }
+]

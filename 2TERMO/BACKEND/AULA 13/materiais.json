@@ -1,0 +1,20 @@
+[
+  {
+    "codigo": 1,
+    "descricao": "Aço",
+    "quantidade": 50,
+    "valorUnitario": 32.50
+  },
+  {
+    "codigo": 2,
+    "descricao": "Alumínio em Barra",
+    "quantidade": 30,
+    "valorUnitario": 45.00
+  },
+  {
+    "codigo": 3,
+    "descricao": "Chapa de Cobre",
+    "quantidade": 20,
+    "valorUnitario": 80.25
+  }
+]
