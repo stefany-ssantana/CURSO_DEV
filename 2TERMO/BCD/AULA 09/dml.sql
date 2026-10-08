@@ -1,4 +1,4 @@
--- Active: 1788435101780@@127.0.0.1@3306@smartcoffee_dml_vinicius
+-- Active: 1788435101780@@127.0.0.1@3306@smartcoffee_dml
 -- DLQ - DATA QUERY LANGUAGE (LINGUAGEM DE CONSULTA DE DADOS)
 INSERT INTO cliente (nome, email, telefome, cidade, ativo) VALUES
 ('Ana Flavia', 'anaf@gmail.com', '19952249648', 'Campinas', TRUE);
