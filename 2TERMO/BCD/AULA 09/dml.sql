@@ -1,0 +1,233 @@
+-- Active: 1788435101780@@127.0.0.1@3306@smartcoffee_dml_vinicius
+-- DLQ - DATA QUERY LANGUAGE (LINGUAGEM DE CONSULTA DE DADOS)
+INSERT INTO cliente (nome, email, telefome, cidade, ativo) VALUES
+('Ana Flavia', 'anaf@gmail.com', '19952249648', 'Campinas', TRUE);
+
+-- EX 1: SELECT SIMPLES OU CONSULTA SIMPLES
+-- ESTRUTURA SELECT COMO EXEMPLO
+-- SELECT coluna
+-- FROM tabela
+
+SELECT *
+FROM cliente;
+-- CONSULTAR TODAS AS COLUNAS
+
+SELECT nome, telefone
+FROM cliente;
+-- CONSULTAR COLUNAS ESPECIFICAS
+
+-- EX 2: ALIAS COM AS COMO APELIDO AS COLUNAS
+SELECT nome AS Nome_cliente
+FROM cliente;
+
+SELECT email AS Email_Cliente, telefone AS Zap
+FROM cliente;
+
+--EX 3: DISTINCT - ELIMINANDO REPETIÇOES
+SELECT DISTINCT cidade
+FROM cliente;
+
+-- EX 4: WHERE - FILTRO DOS REGISTROS
+-- IREMOS DEFINIR CONDIÇOES
+-- = IGUAL
+-- <> OU ! = DIFERENTE
+-- > MAIOR QUE 
+-- < MENOR QUERY
+-- <= MENOR IGUAL
+
+SELECT nome, preco, ativo AS Status 
+FROM produto 
+WHERE ativo = TRUE;
+-- CONSULTA STATUS DE CLIENTES SE ESTA ATIVO OU INATIVO
+
+SELECT id_pedido, data_pedido, valor_total
+FROM pedido
+WHERE valor_total >= 25.00;
+-- CONSULTA PEDIDOS ACIMA DETERMINADO VALOR 
+
+-- EX 5: USO DO AND, OR E NOT
+-- AND TODAS AS CONDIÇÕES  VERDADEIRAS
+SELECT nome, preco
+FROM produto 
+WHERE preco >= 8.00 AND preco <= 25.00;
+
+-- OR PELO MENOS UMA CONDIÇÃO VERDADEIRA
+SELECT nome, cidade
+FROM cliete
+WHERE cidade = 'Limeira';
+
+-- NOT IRA BUSCAR OU CONSULTAR O VALOR DESEJADO
+SELECT nome, cidade
+FROM cliente 
+WHERE NOT cidade = 'Limeira';
+
+-- EXTRA - UTILIZANDO AND E OR JUNTOS SEPARAR POR ()
+SELECT nome, cidade, ativo
+FROM cliente
+WHERE ativo = TRUE
+AND (cidade = 'Limeira' OR cidade = 'Piracicaba');
+
+
+-- EX 6: BETWEEN - ENTRE DOIS VALORES
+-- LIMITE INICIAL E FINAL
+SELECT nome, preco 
+FROM pedido
+WHERE preco BETWEEN 8.00 AND 15.00;
+-- CONSULTA POR VALORES ENTRE 8 E 15
+
+SELECT id_pedido, data_pedido, valor_total
+FROM pedido
+WHERE data_pedido BETWEEN '2026-01-01  00:00:00' AND '2026-12-30  23:59:59'
+-- CONSULTA POR INTERVALO DE DATAS 
+
+
+-- EX 7: IN VARIAS POSSIBILIDADES
+SELECT nome, cidade
+FROM cliente
+WHERE cidade IN ('Limeira', 'Campinas','Americana','Piracicaba');
+-- CONSULTA COM VARIAS CONDIÇÕES E DIMINUINDO O USO DE OR
+
+SELECT nome, cidade
+FROM cliente
+WHERE cidade NOT IN ('Limeira','Piracicaba');
+-- CONSULTA COM EXCESSÃO DOS VALORES ESPECIFICADOS
+
+-- EX 8: LIKE - PESQUISAR POR TEXTOS
+-- CORINGAS
+-- % VARIOS CARACTER
+-- _ EXATAMENTE UM CARATER
+SELECT nome
+FROM produto 
+WHERE nome LIKE 'Café%';
+-- CONSULTA TODOS OS PRODUTOS QUE COMEAM COM A PALAVRA DESEJADA
+
+SELECT nome
+FROM produto 
+WHERE nome LIKE 'chocolate%';
+-- CONSULTA TODOS OS PRODUTOS QUE COMEAM COM A PALAVRA DESEJADA
+
+
+SELECT nome 
+FROM cliente 
+WHERE nome LIKE 'Silva%';
+-- CONSULTA TODOS OS PRODUTOS QUE COMEAM COM A PALAVRA DESEJADA
+
+
+SELECT nome  
+FROM cliente
+WHERE nome LIKE 'Si_va%';
+-- CONSULTA ESPECIFICAMENTE O CARACTER QUE NÃO SE LEMBRA
+
+
+--EX 9: NULL - AUSENCIA DE VALORES
+SELECT nome  
+FROM cliente 
+WHERE telefone IS NULL;
+-- CONSULTA CAMPOS QUE POSSUEM O NULL
+
+SELECT nome, telefone
+FROM cliente 
+WHERE telefone IS NOT NULL
+-- CONSULTA CAMPOS QUE NÃO SÃO MAIS NULL
+
+
+-- EX 10: ORDER BY - ORDENADO RESULTADOS
+-- ASC CRESCENTE 
+-- DESC DECRESCENTE 
+SELECT nome, preco
+FROM produto 
+ORDER BY preco ASC;
+-- CONSULTAR DADOS DE FORMA CRESCENTE
+
+SELECT cidade, nome 
+FROM cliente 
+ORDER BY preco DESC;
+-- CONSULTAR DADOS DE FORMA DECRESCENTE
+
+SELECT cidade, nome 
+FROM cliente 
+ORDER BY cidade, nome ASC, nome DESC;
+-- CONSULTAR POR MAIS DE UMA COLUNA
+
+
+-- EXC 11: LIMIT - LIMITAR O NUMERO DE LINHAS 
+SELECT nome, preco 
+FROM produto 
+ORDER BY nome
+LIMIT 5;
+-- CONSULTAR APENAS UMA QUANTIDADE ESPECIFICA DE LINHAS 
+
+SELECT nome, preco 
+FROM produto 
+ORDER BY nome
+LIMIT 5 OFFSET 5;
+-- CONSULTAR COM LIMITE DE VALORES E LINHAS
+
+
+-- EX 12: CALCULO DE COLUNAS 
+SELECT nome, preco, preco * 2 AS preco_ajustado
+FROM produto;
+
+SELECT id_item, quantidade, preco_unitario, quantidade * preco_unitario AS Sub_total
+FROM item_pedido;
+
+
+-- EX 13: FUÇÕES PARA CONSULTAS
+-- TEXTOS 
+SELECT UPPER (nome) AS Nome_Cliente, LOWER (email) AS Email_Cliente
+FROM cliente;
+
+SELECT CONCAT (nome, '--', cidade) AS Cidade_Clientes
+FROM cliente;
+-- CONCAT CONACTENAÇÃODE VALORES 
+
+-- NUMEROS
+SELECT nome, preco, ROUND (preco * 0.90, 2) AS Preco_deconto
+FROM produto;
+
+-- DATAS
+SELECT id_pedido, data_pedido, DATE(data_pedido) AS Datas, MONTH (data_pedido) AS Mês, YEAR(data_pedido) AS Ano, DAY(data_pedido) AS Dia, 
+TIME (data_pedido) AS Horario
+FROM pedido;
+
+-- COALESCE - SUBSTITUIR A INFORMAÇÃO QUE DEIXAMOS EM NULL OU NÃO DIEXAMOS 
+SELECT nome, COALESCE(telefone, 'Não informado') AS telefone
+FROM cliente;
+
+
+-- EX 14: FUNÇÕES DE AGRUPAMENTO
+-- COUNT -  CONTAR QUANTOS REGISTROS EXISTEM 
+-- SUM - SOMA DE VALORES 
+-- AVG - MÉDIA DE VALORES 
+-- MIN - MENOR VALOR
+-- MAX - MAIOR VALOR
+
+SELECT COUNT(*) AS TOTAL_CLIENTE
+FROM cliente;
+-- CONTAR QUANTOS CLINETES EXISTEM
+
+SELECT AVG(preco) AS ROUND(MÉDIA_PREÇOS)
+FROM produto;
+-- CALCULAR MEDIA DE PREÇOS DOS PRODUTOS
+
+SELECT MIN(preco) AS MENOR_PRECO, MAX(preco) AS MAIOR_PREÇO, AVG(preco) AS MÉDIA_PREÇO
+FROM produto;
+-- RESUMO DE PREÇOS 
+
+-- EX 16: HAVING - FILTRO POR GRUPOS
+-- WHERE - FILTRA LINHAS ANTES DO GROUP BY
+-- HAVING - FILTRA LINHAS DEPOIS DO GRUPO BY
+
+-- EX 17: ORDEM DE CRIAÇÃO DE UMA CONSULTA COMPLETA
+SELECT colunas
+FROM tabela
+WHERE condicao
+GROUP BY colunas_agrupar
+HAVING condicao_agrupar
+ORDER BY colunas
+LIMIT quantidade;
+
+
+
+
+
