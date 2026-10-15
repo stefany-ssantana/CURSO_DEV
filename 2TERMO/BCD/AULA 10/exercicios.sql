@@ -98,16 +98,16 @@ START TRANSACTION;
 INSERT INTO pedidos (id_clientes, data_hora, valor_total, tipo_pedido, status) 
 VALUES (2, NOW(), 25, 'BALCAO', 'NOVO');
 
-SET @id_temp = LAST_INSERT_ID();
+SET @id_temporario = LAST_INSERT_ID();
 
-INSERT INTO contem (id_pedidos, id_produto) VALUES (@id_temp, 1);
-INSERT INTO contem (id_pedidos, id_produto) VALUES (@id_temp, 2);
+INSERT INTO contem (id_pedidos, id_produto) VALUES (@id_temporario, 1);
+INSERT INTO contem (id_pedidos, id_produto) VALUES (@id_temporario, 2);
 
 -- Exclui o pedido pai
-DELETE FROM pedidos WHERE id_pedidos = @id_temp;
+DELETE FROM pedidos WHERE id_pedidos = @id_temporario;
 
 -- Checa se os registros sumiram da tabela 'contem'
-SELECT * FROM contem WHERE id_pedidos = @id_temp;
+SELECT * FROM contem WHERE id_pedidos = @id_temporario;
 
 -- Finalize com ROLLBACK para preservar a base
 ROLLBACK;
