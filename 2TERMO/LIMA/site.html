@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORGETECH - Gestão e Manutenção Industrial</title>
+  
+  <!-- Fontes de Alta Fidelidade: Montserrat (Títulos) e Inter (Texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* VARIÁVEIS E PALETA DE CORES (PRETO, VERMELHO, BRANCO E CINZA) */
+    :root {
+      --bg-main: #0a0a0c;
+      --bg-card: #121216;
+      --bg-card-hover: #181820;
+      --bg-input: #050507;
+      --border-color: #22222b;
+      --red-primary: #e50914;
+      --red-hover: #b80710;
+      --red-glow: rgba(229, 9, 20, 0.25);
+      --text-white: #ffffff;
+      --text-gray: #a0a0ab;
+      --text-muted: #666673;
+      --font-title: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-gray);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .logo-text, .nav-btn, .action-btn {
+      font-family: var(--font-title);
+      color: var(--text-white);
+    }
+
+    /* HEADER & NAV BAR */
+    header {
+      background-color: rgba(10, 10, 12, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--red-primary);
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .logo-box {
+      background-color: var(--red-primary);
+      color: var(--text-white);
+      font-weight: 900;
+      font-size: 20px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .logo-text span {
+      color: var(--red-primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: var(--text-gray);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-white);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-btn.active {
+      color: var(--text-white);
+      background-color: var(--red-primary);
+      box-shadow: 0 0 12px var(--red-glow);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .action-btn {
+      background-color: var(--red-primary);
+      color: var(--text-white);
+      border: none;
+      padding: 10px 20px;
+      font-weight: 800;
+      font-size: 13px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px var(--red-glow);
+    }
+
+    .action-btn:hover {
+      background-color: var(--red-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-white);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--red-primary);
+      background-color: rgba(229, 9, 20, 0.1);
+    }
+
+    /* PÁGINAS E NAVEGAÇÃO INTERATIVA */
+    .page {
+      display: none;
+      padding: 50px 6%;
+      min-height: 82vh;
+      animation: pageSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes pageSlide {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #14141a 0%, #0a0a0c 100%);
+      border: 1px solid var(--border-color);
+      border-left: 6px solid var(--red-primary);
+      border-radius: 8px;
+      padding: 70px 50px;
+      margin-bottom: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -100px;
+      bottom: -100px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, var(--red-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      color: var(--red-primary);
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--red-primary);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 800px;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-gray);
+      max-width: 700px;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    /* SEÇÕES E TITULOS */
+    .section-header {
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title span {
+      color: var(--red-primary);
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* CARDS E GRIDS */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      background-color: var(--bg-card-hover);
+      border-color: var(--red-primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-num {
+      font-family: var(--font-title);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--red-primary);
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background-color: rgba(229, 9, 20, 0.12);
+      color: var(--red-primary);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      align-self: flex-start;
+    }
+
+    /* ESTATÍSTICAS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .stat-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--red-primary);
+      border-radius: 6px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-title);
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* WIREFRAME / BANNER SUSTENTABILIDADE */
+    .banner-sustainability {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 35px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .wireframe-box {
+      height: 220px;
+      border: 2px dashed #333340;
+      border-radius: 6px;
+      background-color: #0c0c10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 13px;
+      position: relative;
+    }
+
+    .wireframe-box::before, .wireframe-box::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #222230;
+    }
+    .wireframe-box::before { transform: rotate(15deg); }
+    .wireframe-box::after { transform: rotate(-15deg); }
+
+    /* TABELAS */
+    .table-container {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background-color: #0d0d12;
+      color: var(--text-white);
+      font-family: var(--font-title);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: rgba(255, 255, 255, 0.02);
+      color: var(--text-white);
+    }
+
+    /* ABAS DE USUÁRIOS */
+    .role-tabs {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .role-tab-btn {
+      flex: 1;
+      padding: 18px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-gray);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .role-tab-btn:hover {
+      border-color: var(--red-primary);
+      color: var(--text-white);
+    }
+
+    .role-tab-btn.active-role {
+      background-color: var(--red-primary);
+      border-color: var(--red-primary);
+      color: var(--text-white);
+      box-shadow: 0 4px 15px var(--red-glow);
+    }
+
+    .panel-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 35px;
+    }
+
+    /* FORMULÁRIO DE ORÇAMENTO */
+    .form-container {
+      max-width: 750px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text-white);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      color: var(--text-white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: border-color 0.25s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--red-primary);
+      box-shadow: 0 0 8px var(--red-glow);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #050507;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 6%;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 60px;
+    }
+
+    footer p span {
+      color: var(--red-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-container" onclick="showPage('inicio')">
+      <div class="logo-box">F</div>
+      <div class="logo-text">FORGETECH<span>.</span></div>
+    </div>
+    <nav>
+      <button class="nav-btn active" onclick="showPage('inicio', this)">Início</button>
+      <button class="nav-btn" onclick="showPage('empresa', this)">Empresa</button>
+      <button class="nav-btn" onclick="showPage('servicos', this)">Serviços</button>
+      <button class="nav-btn" onclick="showPage('colaboradores', this)">Colaboradores</button>
+      <button class="nav-btn" onclick="showPage('manuais', this)">Manuais</button>
+      <button class="nav-btn" onclick="showPage('portais', this)">Portais</button>
+      <button class="nav-btn" onclick="showPage('ajuda', this)">Ajuda</button>
+    </nav>
+    <div class="header-actions">
+      <button class="action-btn btn-outline" onclick="showPage('portais', this)">Área do Sistema</button>
+      <button class="action-btn" onclick="showPage('orcamento', this)">Orçamento</button>
+    </div>
+  </header>
+
+  <!-- PÁGINA 1: INÍCIO (LAYOUT DO SEU WIREFRAME) -->
+  <div id="inicio" class="page active-page">
+    <div class="hero">
+      <div class="hero-tag">Manutenção Industrial</div>
+      <h1>Soluções industriais que mantêm sua operação em movimento.</h1>
+      <p>Atendimento, diagnóstico e suporte técnico para ajustar sua indústria a operar com segurança e eficiência.</p>
+      <button class="action-btn" onclick="showPage('orcamento', this)">Solicitar Orçamento Técnico</button>
+    </div>
+
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Conheça a <span>Forgetech</span></h2>
+        <div class="section-sub">Atendimento de excelência com foco em planejamento, prevenção e continuidade produtiva.</div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">2200</div>
+        <div class="stat-label">Projetos Concluídos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">92,7%</div>
+        <div class="stat-label">Índice de Satisfação</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Estados Atendidos</div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Compromisso com o <span>Meio Ambiente</span></h2>
+      </div>
+    </div>
+
+    <div class="banner-sustainability">
+      <div class="wireframe-box">
+        <span style="z-index: 2; background: #0c0c10; padding: 4px 10px;">IMAGEM: Indústria + Sustentabilidade</span>
+      </div>
+      <div>
+        <h3 style="font-size: 22px; margin-bottom: 12px; color: var(--text-white);">Planejamento & Sustentabilidade Operacional</h3>
+        <p style="margin-bottom: 15px;">Planejamento de intervenções, reduzindo desperdícios e aumentando a vida útil dos equipamentos.</p>
+        <p>A manutenção responsável contribui diretamente para o uso eficiente dos recursos energéticos e eliminação de paradas desnecessárias.</p>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Resultados em <span>Operações Reais</span></h2>
+        <div class="section-sub">Exemplos dos tipos de serviços realizados em manutenção industrial.</div>
+      </div>
+      <button class="action-btn btn-outline" onclick="showPage('servicos', this)">Explorar Todos Serviços &rarr;</button>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Manutenção Preventiva</h3>
+        <p>Inspeções programadas e intervenções periódicas para prevenir paradas não planejadas e maximizar ativos.</p>
+        <span class="badge">Atendimento de Rotina</span>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Adequação Elétrica</h3>
+        <p>Revisão de painéis, comandos elétricos e adequação rigorosa às normas de segurança técnicas vigentes.</p>
+        <span class="badge">Norma Técnica</span>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Diagnóstico Técnico</h3>
+        <p>Identificação precisa de falhas mecânicas e elétricas com emissão de relatórios e laudos completos de solução.</p>
+        <span class="badge">Inspeção Detalhada</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: EMPRESA -->
+  <div id="empresa" class="page">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Sobre a <span>Forgetech</span></h2>
+        <div class="section-sub">Conheça nossa estrutura, valores e compromisso com o setor industrial.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 30px;">
+      <h3 style="color: var(--text-white); margin-bottom: 15px;">Nossa História e Foco</h3>
+      <p>A Forgetech nasceu da necessidade de centralizar e profissionalizar as rotinas de manutenção industrial. Atuamos como parceiro estratégico para transformar operações reativas em setores organizados, preditivos e de alta eficiência energética.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Missão</h3>
+        <p>Proporcionar soluções integradas de engenharia de manutenção que elevem a produtividade e garantam a segurança operacional.</p>
+      </div>
+      <div class="card">
+        <h3>Visão</h3>
+        <p>Ser referência nacional no gerenciamento de manutenção preditiva, aplicação de IoT e estruturação de PCM.</p>
+      </div>
+      <div class="card">
+        <h3>Valores</h3>
+        <p>Segurança rigorosa, inovação tecnológica, transparência em orçamentos e responsabilidade socioambiental.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 3: OS 6 SERVIÇOS -->
+  <div id="servicos" class="page">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Catálogo Completo de <span>Serviços</span></h2>
+        <div class="section-sub">Soluções fundamentadas nos requisitos e pesquisas técnicas industriais.</div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>1. Manutenção Preventiva</h3>
+        <p>Inspeções programadas e rotinas operacionais para substituir componentes antes da quebra final do ativo.</p>
+        <span class="badge">Rotina Essencial</span>
+      </div>
+
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>2. Adequação Elétrica</h3>
+        <p>Revisão e substituição de comandos, quadros de distribuição e adequação completa às normas de segurança.</p>
+        <span class="badge">Conformidade NR</span>
+      </div>
+
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>3. Diagnóstico Técnico</h3>
+        <p>Avaliação detalhada de ruídos, desgastes e anomalias térmicas com laudo e plano de ação imediato.</p>
+        <span class="badge">Laudo Especializado</span>
+      </div>
+
+      <div class="card">
+        <div class="card-num">04</div>
+        <h3>4. Monitoramento Preditivo & IoT</h3>
+        <p>Instalação e acompanhamento de sensores online de vibração e temperatura para antecipar falhas antes que a máquina pare.</p>
+        <span class="badge">Indústria 4.0</span>
+      </div>
+
+      <div class="card">
+        <div class="card-num">05</div>
+        <h3>5. Análise de Causa Raiz (ACR)</h3>
+        <p>Investigação detalhada pós-quebra utilizando metodologias como Diagrama de Ishikawa e 5 Porquês para garantir que o defeito nunca mais aconteça.</p>
+        <span class="badge">Solução Definitiva</span>
+      </div>
+
+      <div class="card">
+        <div class="card-num">06</div>
+        <h3>6. Estruturação de PCM & Criticidade</h3>
+        <p>Organização do setor de Planejamento e Controle da Manutenção, mapeamento de ativos da fábrica e criação de cronogramas com base no risco.</p>
+        <span class="badge">Gestão Estratégica</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 4: COLABORADORES -->
+  <div id="colaboradores" class="page">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Corpo Técnico & <span>Capacitação</span></h2>
+        <div class="section-sub">Consulta de especialistas, capacitação necessária e estimativa de investimento.</div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Profissional / Técnico</th>
+            <th>Especialidade Principal</th>
+            <th>Capacitação Mínima Requerida</th>
+            <th>Média / Hora</th>
+            <th>Disponibilidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--text-white);">Carlos Eduardo Silva</strong></td>
+            <td>Engenharia de PCM & Criticidade</td>
+            <td>Graduação em Mecânica + Certificação PCM</td>
+            <td>R$ 180,00/h</td>
+            <td><span class="badge" style="border-color:#2e7d32; color:#4caf50;">Disponível</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text-white);">Marcos Antônio Souza</strong></td>
+            <td>IoT e Sensores Preditivos</td>
+            <td>Técnico Eletroeletrônico + Termografia Nível II</td>
+            <td>R$ 140,00/h</td>
+            <td><span class="badge" style="border-color:#2e7d32; color:#4caf50;">Disponível</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text-white);">Fernanda Lima</strong></td>
+            <td>Especialista em Causa Raiz (ACR)</td>
+            <td>Engenharia de Produção + Six Sigma Black Belt</td>
+            <td>R$ 195,00/h</td>
+            <td><span class="badge" style="border-color:#ef6c00; color:#ff9800;">Em Campo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PÁGINA 5: MANUAIS -->
+  <div id="manuais" class="page">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Central de <span>Informações de Máquinas</span></h2>
+        <div class="section-sub">Manuais técnicos e documentações concentradas sobre equipamentos conhecidos.</div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Torno CNC / Usinagem</h3>
+        <p>Especificações do fabricante, tabela de lubrificantes recomendados e checklist diário de operação.</p>
+        <button class="action-btn btn-outline" style="width: 100%;">Baixar Manual (PDF)</button>
+      </div>
+      <div class="card">
+        <h3>Prensas Hidráulicas</h3>
+        <p>Roteiro de sangria de fluido, troca de vedações e rotina de aferição de pressão de segurança.</p>
+        <button class="action-btn btn-outline" style="width: 100%;">Baixar Manual (PDF)</button>
+      </div>
+      <div class="card">
+        <h3>Compressores Industriais</h3>
+        <p>Plano de monitoramento vibracional, substituição de filtros e checagem de sensores de temperatura.</p>
+        <button class="action-btn btn-outline" style="width: 100%;">Baixar Manual (PDF)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 6: PORTAIS DE USUÁRIOS -->
+  <div id="portais" class="page">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Portais do <span>Sistema por Perfil</span></h2>
+        <div class="section-sub">Ambientes adaptados para os 3 perfis de usuários da plataforma.</div>
+      </div>
+    </div>
+
+    <div class="role-tabs">
+      <div class="role-tab-btn active-role" onclick="switchRole('cliente', this)">1. Portal do Cliente (Quem Solicita)</div>
+      <div class="role-tab-btn" onclick="switchRole('tecnico', this)">2. Portal do Técnico (Quem Executa)</div>
+      <div class="role-tab-btn" onclick="switchRole('gestor', this)">3. Portal do Gestor (Quem Aprova)</div>
+    </div>
+
+    <!-- CLIENTE -->
+    <div id="role-cliente" class="panel-box">
+      <h3 style="color: var(--text-white); margin-bottom: 10px;">Área do Cliente / Solicitante</h3>
+      <p style="margin-bottom: 20px;">Acompanhe o andamento das suas solicitações de reparo e peça novos orçamentos sem burocracia.</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Protocolo</th>
+              <th>Serviço Solicitado</th>
+              <th>Data</th>
+              <th>Status do Atendimento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#SOL-8821</td>
+              <td>Adequação Elétrica de Painel Principal</td>
+              <td>14/10/2026</td>
+              <td><span class="badge" style="border-color:#ef6c00; color:#ff9800;">Em Análise pela Gestão</span></td>
+            </tr>
+            <tr>
+              <td>#SOL-7703</td>
+              <td>Instalação de Sensores Preditivos IoT</td>
+              <td>02/10/2026</td>
+              <td><span class="badge" style="border-color:#2e7d32; color:#4caf50;">Aprovado & Em Agendamento</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TÉCNICO -->
+    <div id="role-tecnico" class="panel-box" style="display: none;">
+      <h3 style="color: var(--text-white); margin-bottom: 10px;">Área do Técnico / Executante</h3>
+      <p style="margin-bottom: 20px;">Acesse ordens de serviço atribuídas, manuais das máquinas e registre laudos pós-atendimento.</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Ordem de Serviço</th>
+              <th>Equipamento</th>
+              <th>Metodologia Indicada</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#OS-3001</td>
+              <td>Compressor de Ar Parafuso #02</td>
+              <td>Análise de Causa Raiz (5 Porquês)</td>
+              <td><button class="action-btn" style="padding: 6px 12px; font-size: 11px;">Abrir Relatório</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- GESTOR -->
+    <div id="role-gestor" class="panel-box" style="display: none;">
+      <h3 style="color: var(--text-white); margin-bottom: 10px;">Área do Gestor / Chefe de Operações</h3>
+      <p style="margin-bottom: 20px;">Avalie solicitações, aceite/recuse propostas de orçamentos e lance pacotes de serviços fixos.</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Proposta</th>
+              <th>Cliente Solicitante</th>
+              <th>Valor Estimado</th>
+              <th>Ação Obrigatória da Gestão</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#PROP-902</td>
+              <td>Indústria Metalúrgica Limeira</td>
+              <td>R$ 12.800,00</td>
+              <td>
+                <button class="action-btn" style="background-color:#2e7d32; padding: 6px 12px; font-size: 11px;">Aprovar Proposta</button>
+                <button class="action-btn" style="background-color:#c62828; padding: 6px 12px; font-size: 11px;">Recusar / Ajustar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 7: AJUDA -->
+  <div id="ajuda" class="page">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Central de <span>Ajuda</span></h2>
+        <div class="section-sub">Dúvidas frequentes sobre orçamentos e navegação no sistema.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 20px;">
+      <h3 style="color:var(--text-white); margin-bottom: 8px;">Como solicitar um orçamento rápido?</h3>
+      <p>Basta clicar no botão "Orçamento" no menu superior e escolher a opção de "Solicitação Rápida". A proposta será enviada para a aba do Gestor.</p>
+    </div>
+    <div class="card" style="margin-bottom: 20px;">
+      <h3 style="color:var(--text-white); margin-bottom: 8px;">Como agendar uma visita técnica presencial?</h3>
+      <p>No formulário de orçamento, escolha a modalidade "Orçamento Detalhado com Visita ao Local" para agendar o diagnóstico dos nossos engenheiros.</p>
+    </div>
+  </div>
+
+  <!-- PÁGINA 8: ORÇAMENTO -->
+  <div id="orcamento" class="page">
+    <div class="section-header" style="justify-content: center; text-align: center;">
+      <div>
+        <h2 class="section-title">Solicitação de <span>Orçamento</span></h2>
+        <div class="section-sub">Preencha os dados abaixo para direcionamento direto ao Gestor de Operações.</div>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <form onsubmit="alert('Orçamento enviado com sucesso! O Gestor avaliará sua solicitação.'); return false;">
+        <div class="form-group">
+          <label>Nome Completo / Empresa Solicitante</label>
+          <input type="text" placeholder="Ex: Celso Ricardo - Indústria X" required>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de Solicitação de Orçamento</label>
+          <select required>
+            <option value="rapido">Solicitação de Orçamento Rápido pelo Site</option>
+            <option value="visita">Solicitação de Orçamento Detalhado com Visita ao Local</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Serviço Principal Necessário</label>
+          <select required>
+            <option>1. Manutenção Preventiva</option>
+            <option>2. Adequação Elétrica</option>
+            <option>3. Diagnóstico Técnico</option>
+            <option>4. Monitoramento Preditivo & IoT</option>
+            <option>5. Análise de Causa Raiz (ACR)</option>
+            <option>6. Estruturação de PCM & Criticidade</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Descrição Detalhada da Necessidade</label>
+          <textarea rows="5" placeholder="Descreva o problema da máquina, sintomas ou o tipo de contrato desejado..." required></textarea>
+        </div>
+
+        <button type="submit" class="action-btn" style="width: 100%; padding: 16px;">Enviar Orçamento para Aprovação da Gestão</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <span>FORGETECH</span> - Sistema Concentrador de Manutenção Industrial | Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- SCRIPT DE NAVEGAÇÃO -->
+  <script>
+    function showPage(pageId, element) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active-page'));
+      
+      const navBtns = document.querySelectorAll('.nav-btn');
+      navBtns.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(pageId).classList.add('active-page');
+      
+      if(element && element.classList.contains('nav-btn')) {
+        element.classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchRole(role, element) {
+      document.getElementById('role-cliente').style.display = 'none';
+      document.getElementById('role-tecnico').style.display = 'none';
+      document.getElementById('role-gestor').style.display = 'none';
+
+      document.querySelectorAll('.role-tab-btn').forEach(btn => btn.classList.remove('active-role'));
+      
+      document.getElementById('role-' + role).style.display = 'block';
+      element.classList.add('active-role');
+    }
+  </script>
+
+</body>
+</html>
