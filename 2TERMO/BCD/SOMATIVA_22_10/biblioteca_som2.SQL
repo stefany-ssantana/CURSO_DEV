@@ -169,4 +169,38 @@ SELECT
 FROM EMPRESTIMO
 GROUP BY status_emprestimo;
 
+-- FASE 4 — TCL, TRANSAÇÕES E INTEGRIDADE
 
+-- 21. Transação de empréstimo
+START TRANSACTION;
+INSERT INTO EMPRESTIMO (data_emprestimo, data_prevista, status_emprestimo, id_usuario, id_livro)
+VALUES (NOW(), '2026-11-05', 'ABERTO', 2, 3);
+
+
+UPDATE LIVRO
+SET quantidade_disponivel = quantidade_disponivel - 1
+WHERE id_livro = 3;
+
+
+SELECT * FROM EMPRESTIMO WHERE id_usuario = 2;
+SELECT * FROM LIVRO WHERE id_livro = 3;
+
+COMMIT;
+
+
+-- 22. ROLLBACK
+START TRANSACTION;
+
+UPDATE LIVRO
+SET quantidade_disponivel = 99
+WHERE id_livro = 1;
+
+SELECT id_livro, titulo, quantidade_disponivel 
+FROM LIVRO 
+WHERE id_livro = 1;
+
+ROLLBACK;
+
+SELECT id_livro, titulo, quantidade_disponivel 
+FROM LIVRO 
+WHERE id_livro = 1;
