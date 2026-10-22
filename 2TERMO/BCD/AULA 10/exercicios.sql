@@ -2,7 +2,7 @@ USE smartcoffee_dml;
 
 -- 01. Consulte produto 2 e seu preço.
 SELECT id_produto, nome, preco FROM produtos WHERE id_produto = 2;
-
+ 
 -- 02. START TRANSACTION e aumente produto 2 em R$3,00.
 START TRANSACTION;
 UPDATE produtos SET preco = preco + 3.00 WHERE id_produto = 2;
