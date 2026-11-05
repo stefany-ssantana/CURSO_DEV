@@ -1,47 +1,40 @@
-// CONSULTA DE FUNCIONÁRIOS - ATIVIDADE GUIADA
-// Execute depois do cadastro: node consulta.js
-const fs = require('node:fs');
+const fs = require('fs');
 
-function carregarFuncionarios() {
-  const texto = fs.readFileSync('funcionarios.json', 'utf8');
-  return JSON.parse(texto);
+// Verifica se o arquivo existe antes de tentar ler (evita erro ENOENT)
+if (!fs.existsSync('funcionarios.json')) {
+  console.log("Erro: O arquivo 'funcionarios.json' não foi encontrado. Execute primeiro o 'node cadastro.js'!");
+  process.exit(1);
 }
 
-function consultarPorId(funcionarios, id) {
-  // PASSO 5: use find() para procurar funcionario.id === id
-  return undefined;
+// Leitura do arquivo e conversao com JSON.parse()
+const dados = fs.readFileSync('funcionarios.json', 'utf8');
+const funcionarios = JSON.parse(dados);
+
+// PASSO A PASSO DA AULA 4: Funcoes com return obrigatorio
+function buscarPorId(id) {
+  return funcionarios.find(pessoa => pessoa.id === id);
 }
 
-function consultarPorNome(funcionarios, nome) {
-  // PASSO 6: use find() para procurar nome exato, sem diferenciar maiúsculas
-  return undefined;
+function buscarPorNome(nome) {
+  return funcionarios.find(pessoa => pessoa.nome.toLowerCase() === nome.toLowerCase());
 }
 
-function filtrarPorFuncao(funcionarios, funcao) {
-  // PASSO 7: use filter() para retornar todos da mesma função
-  return [];
+function filtrarPorFuncao(funcao) {
+  return funcionarios.filter(pessoa => pessoa.funcao.toLowerCase() === funcao.toLowerCase());
 }
 
-function mostrarFuncionario(funcionario) {
-  if (!funcionario) {
-    console.log('Funcionário não encontrado.');
-    return;
-  }
-  console.log(`ID: ${funcionario.id} | Nome: ${funcionario.nome} | Idade: ${funcionario.idade} | Função: ${funcionario.funcao}`);
-}
+// === EXECUTANDO E EXIBINDO OS TESTES NO TERMINAL ===
+console.log("=== LISTA DE FUNCIONÁRIOS ===");
+console.log(funcionarios);
 
-try {
-  const funcionarios = carregarFuncionarios();
-  console.log('=== TODOS OS FUNCIONÁRIOS ===');
-  funcionarios.forEach(mostrarFuncionario);
-  console.log('\n=== CONSULTA POR ID 2 ===');
-  mostrarFuncionario(consultarPorId(funcionarios, 2));
-  console.log('\n=== CONSULTA POR NOME ===');
-  mostrarFuncionario(consultarPorNome(funcionarios, funcionarios[0].nome));
-  console.log('\n=== FILTRO POR FUNÇÃO ===');
-  // Troque o valor abaixo por uma função que você cadastrou.
-  filtrarPorFuncao(funcionarios, funcionarios[0].funcao).forEach(mostrarFuncionario);
-} catch (erro) {
-  console.error('Não foi possível ler o JSON. Execute primeiro node cadastro.js.');
-  console.error('Detalhe:', erro.message);
-}
+console.log("\n--- Teste 1: Buscar ID 2 ---");
+console.log(buscarPorId(2));
+
+console.log("\n--- Teste 2: Buscar ID 99 (Inexistente) ---");
+console.log(buscarPorId(99));
+
+console.log("\n--- Teste 3: Buscar por Nome ---");
+console.log(buscarPorNome("Carlos Eduardo"));
+
+console.log("\n--- Teste 4: Filtrar por Função Compartilhada ---");
+console.log(filtrarPorFuncao("Desenvolvedor"));
