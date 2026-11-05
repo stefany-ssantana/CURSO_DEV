@@ -1,0 +1,25 @@
+.grid-c {
+    display: grid;
+    background-color: #ac41cc77;
+    align-items: center;
+    gap: 40px;
+}
+
+.grid-l {
+    display: grid;
+    background-color: #ac41cc77;
+    align-items: center;
+    gap: 40px;
+}
+
+@media (max-width: 600px) {
+    .grid-c {
+        
+        flex-direction: column;
+        gap: 50px;
+    }
+    .grid-l {
+        flex-direction: column;
+        justify-content: center;
+    }
+}

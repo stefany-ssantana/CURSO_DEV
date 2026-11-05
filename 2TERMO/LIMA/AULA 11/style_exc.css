@@ -1,0 +1,94 @@
+.exc1-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;                            
+  list-style: none;
+  padding: 0;
+}
+
+.exc1-grid li {
+  background: #7d02b686;
+  color: rgb(244, 243, 245);
+  padding: 20px;
+  text-align: center;
+}
+
+.exc2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px;                            
+  list-style: none;
+  padding: 0;
+}
+
+.exc2-grid li {
+  background: #7d02b686;
+  color: rgb(244, 243, 245);
+  padding: 20px;
+  text-align: center;
+}
+
+.exc3-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 10px;                            
+  list-style: none;
+  padding: 0;
+}
+
+.exc3-grid li {
+  background: #7d02b686;
+  color: rgb(244, 243, 245);
+  padding: 20px;
+  text-align: center;
+}
+
+.exc4-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); 
+  gap: 10px;                            
+  list-style: none;
+  padding: 0;
+}
+
+.exc4-grid li {
+  background: #7d02b686;
+  color: rgb(244, 243, 245);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Desktop */
+ .exc5-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;                            
+  list-style: none;
+  padding: 0;
+} 
+
+/* Tablet */
+@media (max-width: 600px) {
+  .exc5-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
+/* Celular */
+@media (max-width: 330px) {
+  .exc5-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.exc5-grid li {
+  background: #7d02b686;
+  color: rgb(244, 243, 245);
+  padding: 20px;
+  text-align: center;
+}
+
+
+

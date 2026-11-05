@@ -5,17 +5,17 @@ body {
 }
 
 header {
-    background-color: #cbb298;
+    background-color: #4a2810;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header a {
+header a, header h2 {
     margin-left: 15px;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: bold;
 }
 
@@ -57,14 +57,30 @@ header a {
     padding: 30px 20px;
 }
 
-.caixas, .produtos {
+.caixas {
     display: flex;
     gap: 10px;
 }
 
 .caixa, .card {
     background-color: white;
-    padding: 15px;
+    padding: 30px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+}
+
+.produtos {
+    background-color: white;
+    padding: 30px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+}
+
+.img, .card {
+    background-color: white;
+    padding: 30px;
     border-radius: 6px;
     flex: 1;
     text-align: center;
@@ -76,3 +92,4 @@ footer {
     text-align: center;
     padding: 20px;
 }
+

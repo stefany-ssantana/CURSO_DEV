@@ -1,0 +1,129 @@
+/*  VARIAVEIS EM CSS  */
+:root {
+    /* paleta de cores */
+    --preto: #8300da;
+    --roxo_escuro: #5a321b;
+    --roxo_claro: #c366d6a4;
+    --branco: #ffffff;
+    --fundo : #cf58f338;
+ /* root representa o elemento raiz do documento */
+}
+
+/* Espaçamento */
+
+head{
+    color: var(--fundo);
+}
+h1{
+    color: var(--preto);
+    font-family: "Playfair Display", serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* movimentação visual do scroll do html  */
+}
+
+html {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: var(--preto);
+    line-height: 1.6;
+}
+
+p {
+     line-height: 3;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    color: var(--preto);
+}
+
+h1{
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+.menu {
+    display: flex;
+    gap: 43px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: var(--preto);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    color: var(--branco);
+}
+
+.menu:focus-visible {
+    outline: 3px solid var(--roxo_escuro);
+    outline-offset: 5px;
+}
+
+.menu-id {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 24px;
+    background-color: var(--preto);
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 16px;
+}
+
+.menu-id:hover {
+    background-color: var(--roxo_escuro);
+}
+
+.menu-id {
+    transition: background-color 0.5s ease;
+}
+
+.lista-imgs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(223px, 1fr));
+    gap: 23px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.imagens {
+    height: 100%;
+    padding: 20px;
+    background-color: var(--branco);
+    border: var(--roxo_claro);
+    border-radius: 14px;
+}
+
+.imagens:hover{
+    transform: translate(-12px);
+    box-shadow: 0 12px 38px rgba(91, 40, 114, 0.12);
+}
+
+.imagens img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 18px;
+}

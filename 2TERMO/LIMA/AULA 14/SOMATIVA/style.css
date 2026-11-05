@@ -1,0 +1,119 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f2eeea;
+}
+
+header {
+    background-color: #090729;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+}
+
+header a, header h2 {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    
+}
+.subtitulo {
+    color: rgb(0, 153, 255);
+}
+.banner, .banner1, .banner2 {
+    background-color: #0e0447ee;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.banner-texto {
+    width: 50%;
+}
+
+.banner-foto {
+    width: 50%;
+    text-align: center;
+}
+
+.img-pequena {
+    width: 400px;
+    max-width: 300%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+.botao {
+    display: inline-block;
+    background-color: #530e94;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+
+.parte2 {
+    padding: 30px 20px;
+    background-color: #090729;
+}
+
+.anos80 {
+    display: flex;
+    gap: 10px;
+    color: #090729;
+}
+
+.anos80 {
+    background-color: rgb(253, 253, 253);
+    padding: 10px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+}
+
+.img {
+    padding: 30px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+    width: 180px;
+    max-width: 100%;
+}
+
+.parte3 {
+    padding: 30px 20px;
+    background-color: #090729;
+}
+
+.personagem {
+    display: flex;
+    gap: 10px;
+    color: #090729;
+}
+
+.personagem {
+    background-color: rgb(253, 253, 253);
+    padding: 10px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+}
+
+.img2 {
+    padding: 30px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+    width: 300px;
+    max-width: 200%;
+}
