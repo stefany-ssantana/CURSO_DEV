@@ -90,12 +90,12 @@ header nav a {
     align-items: center;
     justify-content: center;
 }
-
 .caixa img {
     width: 100%;
     height: 140px;
     object-fit: cover;
     margin-bottom: 12px;
+    
 }
 
 
