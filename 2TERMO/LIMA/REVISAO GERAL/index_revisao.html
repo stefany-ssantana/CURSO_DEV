@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Revisão HTML - Caixas Deslocadas</title>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO RETROGAME
+         ========================================================== -->
+    <header class="titulo">
+        <a href="#logo"><h1><span>RETRO</span>GAME</h1></a>
+        <h3>Com grandes poderes, vem grandes responsabilidades</h3>
+        <nav>
+            <ul class="nav">
+                <li><a href="#grupo1">Grupo 1 (Esquerda)</a></li>
+                <li><a href="#grupo2">Grupo 2 (Direita)</a></li>
+                <li><a href="#grupo3">Grupo 3 (Escada)</a></li>
+                <li><a href="#grupo4">Grupo 4 (Sobreposto)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+         BANNER (Igual do Smartcoffee)
+         ========================================================== -->
+    <section class="banner">
+        <div class="banner-texto">
+            <h2>Revisão de Caixas Deslocadas</h2>
+            <p>Mesma estrutura de caixas do Smartcoffee, mas deslocadas em lugares diferentes usando margin, align-self e position.</p>
+            <a href="#grupo1" class="botao">Ver caixas</a>
+        </div>
+        <div class="banner-foto">
+            <img src="https://placehold.co/400x240/3c096c/e0aaff?text=Retro+Game" alt="Banner" class="img-pequena">
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         GRUPO 1: 4 CAIXAS DESLOCADAS PARA A ESQUERDA (margin-right: 15%)
+         ========================================================== -->
+    <section id="grupo1" class="secao">
+        <h2>1. Fileira deslocada para a Esquerda (margin-right: 15%)</h2>
+        <div class="caixas desloca-esquerda">
+            <div class="caixa">
+                <h1>🎮</h1>
+                <h3>Caixa 1</h3>
+                <p>display: flex</p>
+            </div>
+            <div class="caixa">
+                <h1>👾</h1>
+                <h3>Caixa 2</h3>
+                <p>gap: 15px</p>
+            </div>
+            <div class="caixa">
+                <h1>🕹️</h1>
+                <h3>Caixa 3</h3>
+                <p>flex: 1</p>
+            </div>
+            <div class="caixa">
+                <h1>🏆</h1>
+                <h3>Caixa 4</h3>
+                <p>margin-right</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         GRUPO 2: 4 CAIXAS DESLOCADAS PARA A DIREITA (margin-left: 15%)
+         ========================================================== -->
+    <section id="grupo2" class="secao">
+        <h2>2. Fileira deslocada para a Direita (margin-left: 15%)</h2>
+        <div class="caixas desloca-direita">
+            <div class="caixa">
+                <h1>💜</h1>
+                <h3>Caixa 1</h3>
+                <p>Empurrada pela esquerda</p>
+            </div>
+            <div class="caixa">
+                <h1>✨</h1>
+                <h3>Caixa 2</h3>
+                <p>margin-left: 15%</p>
+            </div>
+            <div class="caixa">
+                <h1>🔮</h1>
+                <h3>Caixa 3</h3>
+                <p>Mesmo tamanho</p>
+            </div>
+            <div class="caixa">
+                <h1>🚀</h1>
+                <h3>Caixa 4</h3>
+                <p>Alinhada à direita</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         GRUPO 3: 4 CAIXAS EM ESCADA / ALTURAS DIFERENTES (align-self)
+         ========================================================== -->
+    <section id="grupo3" class="secao">
+        <h2>3. Fileira com caixas em alturas diferentes (align-self)</h2>
+        <div class="caixas desloca-escada">
+            <div class="caixa sobe">
+                <h1>⬆️</h1>
+                <h3>No Topo</h3>
+                <p>align-self: flex-start</p>
+            </div>
+            <div class="caixa meio">
+                <h1>➡️</h1>
+                <h3>No Meio</h3>
+                <p>align-self: center</p>
+            </div>
+            <div class="caixa desce">
+                <h1>⬇️</h1>
+                <h3>Embaixo</h3>
+                <p>align-self: flex-end</p>
+            </div>
+            <div class="caixa sobe">
+                <h1>⬆️</h1>
+                <h3>No Topo</h3>
+                <p>align-self: flex-start</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         GRUPO 4: 4 CAIXAS COM FOTO INVADINDO O BLOCO ROXO (margin-top negativo)
+         ========================================================== -->
+    <section class="faixa-roxa">
+        <h2>4. Fileira invadindo a seção de cima (margin-top: -50px)</h2>
+        <p>As 4 caixas com foto abaixo sobem por cima desta faixa roxa.</p>
+    </section>
+
+    <section id="grupo4" class="secao">
+        <div class="caixas desloca-cima">
+            <div class="caixa-img">
+                <img src="
