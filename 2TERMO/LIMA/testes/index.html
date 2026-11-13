@@ -1,154 +1,190 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOSTALGIA PLAY</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Sabores & Sons 2026</title>
+    <!-- Importando fontes do Google Fonts (máximo 2 famílias) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Vinculando o CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- CABEÇALHO -->
-  <header class="header">
-    <div class="logo">NOSTALGIA <span>PLAY</span></div>
-    <nav class="nav">
-      <a href="#">INÍCIO</a>
-      <a href="#">CLASSICOS</a>
-      <a href="#">HERÓIS</a>
-      <a href="#">HOJE</a>
-      <a href="#" class="btn-entrar">ENTRAR</a>
-    </nav>
-  </header>
-
-  <!-- SESSÃO 1: HERO -->
-  <section class="hero-section">
-    <div class="hero-text">
-      <span class="subtitle">30 · 08 · 2024</span>
-      <h1>HISTÓRIAS QUE ATRAVESSARAM GERAÇÕES.</h1>
-      <p>Uma viagem pela TV, relembrando produções que marcaram época e deixaram saudades.</p>
-      <a href="#" class="btn-rosa">ASSISTIR HOJE</a>
-    </div>
-    <div class="hero-card">
-      <div class="card-box">
-        <span class="badge yellow">GO</span>
-        <div class="circle cyan"></div>
-        <span class="badge cyan-bg">REWIND</span>
-        <span class="badge pink">PLAY</span>
-        <div class="circle pink-border"></div>
-      </div>
-      <p class="card-caption">MEMÓRIAS EM MODO REPLAY</p>
-    </div>
-  </section>
-
-  <!-- SESSÃO 2: ANTES DOS ANOS 90 -->
-  <section class="content-section">
-    <span class="tag">ANTES DOS ANOS 90</span>
-    <h2>CLÁSSICOS QUE CHEGARAM PARA FICAR</h2>
-    <p class="desc">Essas produções deixaram seu marco na TV e continuam vivas na memória de quem cresceu assustado por fantasmas e aventuras.</p>
-    
-    <div class="grid-2">
-      <div class="card">
-        <div class="media-box purple">
-          <div class="dot cyan-dot"></div>
+    <!-- Cabeçalho e Menu de Navegação -->
+    <header class="topo">
+        <div class="container">
+            <span class="logo">Sabores & Sons</span>
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#atracoes">Atrações</a></li>
+                    <li><a href="#programacao">Programação</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
         </div>
-        <span class="card-tag">1986</span>
-        <h3>CAVALEIROS DO ZODÍACO</h3>
-      </div>
-      <div class="card">
-        <div class="media-box pink">
-          <div class="dot yellow-dot"></div>
+    </header>
+
+    <main>
+        <!-- Banner de Abertura -->
+        <section id="inicio" class="banner">
+            <div class="container banner-conteudo">
+                <div class="banner-texto">
+                    <p class="slogan">Música ao vivo e gastronomia artesanal em um só lugar</p>
+                    <h1>Festival Sabores & Sons 2026</h1>
+                    <p>Venha viver um fim de semana inesquecível ao ar livre com os melhores chefs da região, bandas independentes e oficinas culturais para toda a família.</p>
+                    <a href="#atracoes" class="botao">Ver Atrações</a>
+                </div>
+                <div class="banner-imagem">
+                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80" alt="Público aproveitando show ao ar livre durante o pôr do sol no festival">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Cards de Atrações (6 cards) -->
+        <section id="atracoes" class="secao">
+            <div class="container">
+                <h2>Atrações Principais</h2>
+                <p class="subtitulo">Confira os destaques gastronômicos e musicais desta edição.</p>
+
+                <div class="grid-cards">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Banda tocando rock indie no palco iluminado">
+                        <div class="card-corpo">
+                            <span class="categoria">Música</span>
+                            <h3>Banda Horizonte</h3>
+                            <p>Show completo com os maiores sucessos do indie rock nacional e músicas inéditas.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Espetinhos e carnes grelhadas na brasa">
+                        <div class="card-corpo">
+                            <span class="categoria">Gastronomia</span>
+                            <h3>Estação Brasa & Fogo</h3>
+                            <p>Cortes especiais preparados na parrilla por chefs convidados ao longo de todo o dia.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Cantora se apresentando ao microfone com violão">
+                        <div class="card-corpo">
+                            <span class="categoria">Música</span>
+                            <h3>Clara Mendes Acústico</h3>
+                            <p>Apresentação intimista misturando MPB contemporânea, soul e ritmos brasileiros.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Pizza artesanal assada no forno a lenha com manjericão">
+                        <div class="card-corpo">
+                            <span class="categoria">Gastronomia</span>
+                            <h3>Vila das Pizzas</h3>
+                            <p>Massas de fermentação natural assadas na hora em fornos a lenha itinerantes.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Taças coloridas de bebidas artesanais com frutas frescas">
+                        <div class="card-corpo">
+                            <span class="categoria">Oficina</span>
+                            <h3>Mixologia Sem Álcool</h3>
+                            <p>Aprenda a preparar drinks refrescantes com frutas da estação e ervas aromáticas.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" alt="DJ comandando a mesa de som com luzes coloridas">
+                        <div class="card-corpo">
+                            <span class="categoria">Música</span>
+                            <h3>DJ Lucas Groove</h3>
+                            <p>Set especial com clássicos do funk, disco e música eletrônica para encerrar a noite.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Programação -->
+        <section id="programacao" class="secao fundo-alternativo">
+            <div class="container">
+                <h2>Programação do Dia</h2>
+                <p class="subtitulo">Programe-se para não perder nenhum momento do evento.</p>
+
+                <div class="lista-horarios">
+                    <div class="horario-item">
+                        <span class="hora">12:00</span>
+                        <div class="atividade">
+                            <h3>Abertura dos Portões e Praça Gastronômica</h3>
+                            <p>Início das atividades culinárias e música ambiente no gramado central.</p>
+                        </div>
+                    </div>
+
+                    <div class="horario-item">
+                        <span class="hora">15:00</span>
+                        <div class="atividade">
+                            <h3>Oficina de Mixologia Sem Álcool</h3>
+                            <p>Tenda Cultural — Vagas limitadas por ordem de chegada.</p>
+                        </div>
+                    </div>
+
+                    <div class="horario-item">
+                        <span class="hora">18:00</span>
+                        <div class="atividade">
+                            <h3>Show: Clara Mendes Acústico</h3>
+                            <p>Palco Principal — Especial pôr do sol.</p>
+                        </div>
+                    </div>
+
+                    <div class="horario-item">
+                        <span class="hora">20:30</span>
+                        <div class="atividade">
+                            <h3>Show de Encerramento: Banda Horizonte</h3>
+                            <p>Palco Principal — Seguido pelo set do DJ Lucas Groove.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="sobre" class="secao">
+            <div class="container sobre-conteudo">
+                <h2>Sobre o Evento</h2>
+                <p>Criado em 2022, o <strong>Festival Sabores & Sons</strong> nasceu com o objetivo de valorizar pequenos produtores locais, cozinheiros independentes e artistas da cena musical regional. Em um ambiente acolhedor e sustentável, o evento reúne cultura, lazer e boa comida em um espaço aberto para todas as idades.</p>
+                <p>Entrada gratuita mediante doação de 1 kg de alimento não perecível na portaria do parque.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="contato" class="rodape">
+        <div class="container rodape-conteudo">
+            <div>
+                <h3>Festival Sabores & Sons</h3>
+                <p>Parque das Árvores, Av. Central, 1500 — Centro</p>
+            </div>
+            <div>
+                <h3>Contato</h3>
+                <p>E-mail: contato@saboresesons.com.br</p>
+                <p>Telefone: (11) 99999-0000</p>
+                <p>Instagram: @festivalsaboresesons</p>
+            </div>
         </div>
-        <span class="card-tag">1983</span>
-        <h3>CAVERNA DO DRAGÃO</h3>
-      </div>
-    </div>
-  </section>
-
-  <!-- SESSÃO 3: FAIXA ESPECIAL -->
-  <section class="content-section center-text">
-    <span class="tag">FAIXA ESPECIAL</span>
-    <h2>HERÓIS QUE DOMINARAM A TV</h2>
-    <p class="desc">Monstros, ação e personagens que viraram memória afetiva.</p>
-
-    <div class="grid-3">
-      <div class="card">
-        <div class="media-box pink"></div>
-        <span class="card-tag">METAL HERO</span>
-        <h3>JASPION</h3>
-      </div>
-      <div class="card">
-        <div class="media-box cyan"></div>
-        <span class="card-tag">NINJA HERO</span>
-        <h3>JIRAYA</h3>
-      </div>
-      <div class="card">
-        <div class="media-box yellow"></div>
-        <span class="card-tag">TOKUSATSU</span>
-        <h3>KAMEN RIDER BLACK</h3>
-      </div>
-    </div>
-  </section>
-
-  <!-- SESSÃO 4: NOVAS PRODUÇÕES -->
-  <section class="content-section">
-    <span class="tag">O PASSADO CONTINUA PRESENTE</span>
-    <h2>NOVAS PRODUÇÕES, VELHAS EMOÇÕES</h2>
-
-    <div class="zigzag-grid">
-      <div class="zigzag-item">
-        <div class="media-box yellow flex-end">
-          <div class="dot purple-dot"></div>
-          <span class="box-title">X-MEN '97</span>
+        <div class="rodape-base">
+            <p>&copy; 2026 Festival Sabores & Sons. Todos os direitos reservados.</p>
         </div>
-        <div class="zigzag-info">
-          <span class="num">01</span>
-          <span class="card-tag">CONTINUAÇÃO</span>
-          <h3>X-MEN '97</h3>
-        </div>
-      </div>
-
-      <div class="zigzag-item reverse">
-        <div class="zigzag-info">
-          <span class="num">02</span>
-          <span class="card-tag">CULTURA POP</span>
-          <h3>OS SIMPSONS</h3>
-        </div>
-        <div class="media-box yellow flex-end">
-          <div class="dot cyan-dot"></div>
-          <span class="box-title">OS SIMPSONS</span>
-        </div>
-      </div>
-
-      <div class="zigzag-item">
-        <div class="media-box cyan flex-end">
-          <div class="dot pink-dot"></div>
-          <span class="box-title">GRAVITY FALLS</span>
-        </div>
-        <div class="zigzag-info">
-          <span class="num">03</span>
-          <span class="card-tag">MISTÉRIO</span>
-          <h3>GRAVITY FALLS</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BANNER FINAL -->
-  <section class="banner-gradient">
-    <span class="tag-light">FIM DA CENA?</span>
-    <h2>NUNCA.</h2>
-    <p>Algumas histórias envelhecem. Outras viram memória.</p>
-  </section>
-
-  <!-- RODAPÉ -->
-  <footer class="footer">
-    <div class="footer-logo">NOSTALGIA <span>PLAY</span></div>
-    <p class="quote">"Nostalgia não é sobre o que passou, é sobre o cuidado de guardar o que foi bom."</p>
-    <div class="footer-links">
-      <a href="#">TERMOS</a>
-      <a href="#">CONTATO</a>
-    </div>
-  </footer>
+    </footer>
 
 </body>
 </html>

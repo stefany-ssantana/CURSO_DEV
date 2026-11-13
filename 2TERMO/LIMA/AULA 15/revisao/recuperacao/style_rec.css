@@ -1,0 +1,147 @@
+/* AUXILIO DO SMARTCOFFE - ESTA PRATICAMENTE COM  O MESMO DESIGNER VISUAL QUE AJUDOU NA 
+    FORMAÇÃO DO CSS, POREM O HTML FOI COMPLETAMENTE SOZINHA */
+
+    * {
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.titulo-secao {
+    display: flex;
+    background-image: linear-gradient(to right, rgb(115, 1, 209), rgb(32, 13, 41));
+}
+body {
+    background-color: #f0f3f7;
+    padding: 15px;
+    border: 3px solid #521c85; 
+    max-width: 1200px;
+    margin: 15px auto;
+}
+
+
+header {
+    background-color: #5a02a1;
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+
+.banner {
+    background-color: #c6b1e2;
+    color: #222222;
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 15px;
+}
+
+
+.banner-conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.banner-conteudo img {
+    width: 180px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid #ffffff;
+}
+
+.botao {
+    background-color: #2b083b;
+    color: #ffffff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.caixa {
+    background-color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.caixa img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+
+.info-inferior {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 25px;
+    text-align: center;
+}
+
+
+
+footer {
+    background-color: #5a02a1;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .info-inferior {
+        grid-template-columns: 1fr;
+    }
+}
